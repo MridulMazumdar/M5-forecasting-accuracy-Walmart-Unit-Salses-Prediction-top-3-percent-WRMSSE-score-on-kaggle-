@@ -133,7 +133,7 @@ class m5_preprocessing(object):
         grid_df = reduce_usage_mem(grid_df)
         price_df = reduce_usage_mem(price_df)
 
-        grid_df = grid_df.merge(price_df, on=['store_id','item_id','wm_yr_wk'])
+        grid_df = grid_df.merge(price_df, on=['store_id','item_id','wm_yr_wk'], how='left')
         grid_df = reduce_usage_mem(grid_df)
 
         grid_df['item_id']=grid_df['item_id'].astype('category')
